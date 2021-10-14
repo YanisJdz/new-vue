@@ -15,7 +15,6 @@ export default new Vuex.Store({
     getApi(state){
       axios.get('https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=yjSObpLOd9RVv4SEmYC4J270oMdsbbVJ')
       .then(result => {
-          console.log(result);
           result.data.results.forEach(article => {
             if(article.media.length === 0){
               const image = {
