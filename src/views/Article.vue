@@ -12,8 +12,7 @@ export default {
     name:'Article',
     components:{
         ArticleComponent
-    },
-    
+    }
 }
 </script>
 
