@@ -25,20 +25,9 @@
         <div class="row">
             <h2 class="mb-5">Titre du post / article</h2>
             <div class="col-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum vel adipisci quia explicabo facere sint, aliquid perferendis facilis esse ipsum et dolor obcaecati deserunt. Ad, illum. Illum facere harum ducimus.
+                <p v-for="(article,index) in articles" :key="index">
+                    {{article.author}}
+                </p>
             </div>
             <div class="col-4">
                 <div class="card-deck mt-5">
@@ -65,7 +54,12 @@
 
 <script>
 export default {
-    name: 'ArticleComponent'
+    name: 'ArticleComponent',
+    computed:{
+        articles(){
+            return this.$store.state.articles
+        }
+    }
 }
 </script>
 
