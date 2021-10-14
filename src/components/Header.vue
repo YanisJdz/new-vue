@@ -1,9 +1,12 @@
 <template>
-    <nav class="navbar sticky-top navbar-expand bg-light">
+    <nav class="navbar navbar-expand-lg sticky-top bg-light">
         <div class="container-fluid">
         <h1>THE NEW-VUE</h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
                     <router-link class="nav-link" to="/">BLOG</router-link>
                 </li>
@@ -41,7 +44,6 @@ nav {
 .container-fluid {
     height: 100%;
     background-color: #F6F8FF;
-
 }
 
 .nav-link {
