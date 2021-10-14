@@ -2,10 +2,14 @@
     <div class='container d-flex flex-column'>
         <div class="admin-panel d-flex flex-column">
             <h1 class="mb-3 mt-3">Vue Admin</h1>
-            <input type="text" v-model="author" placeholder="Author">
-            <input type="text" v-model="title" placeholder="Title">
-            <textarea v-model="description" name="description" id="1" cols="1" rows="2" placeholder="Description of the article"></textarea>
-            <textarea v-model="content" name="content" id="" cols="30" rows="10" placeholder="Content of the article goes right here"></textarea>
+            <p class = "subtitle">Author</p>
+            <input class="input-area" type="text" v-model="author" placeholder="Author">
+            <p class = "subtitle">Title</p>
+            <input class="input-area" type="text" v-model="title" placeholder="Title">
+            <p class = "subtitle">Description</p>
+            <textarea class="input-area" v-model="description" name="description" id="1" cols="1" rows="2" placeholder="Description of the article"></textarea>
+            <p class = "subtitle">Content</p>
+            <textarea  class="input-area" v-model="content" name="content" id="" cols="30" rows="10" placeholder="Content of the article goes right here"></textarea>
             <button @click="addArticle(createArticle())" v-bind:disabled="author.length === 0" type="submit">Add article</button>
         </div>
         <div class="preview-article">
@@ -49,5 +53,18 @@ export default {
 </script>
 
 <style>
+h1{
+    text-decoration: underline;
+}
+
+button {
+    margin-top: 10px;
+    border: black;
+    
+}
+.subtitle{
+    display: flex;
+    margin-top: 2px;
+}
 
 </style>
