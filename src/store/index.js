@@ -18,6 +18,11 @@ export default new Vuex.Store({
           });
           console.log(state.articles);
         })
+    },
+    addToArticles(state, articles){
+      articles.forEach(article => {
+        state.articles.push(article)
+      });
     }
   },
   actions: {
