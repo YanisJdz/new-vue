@@ -11,38 +11,6 @@
 
             </div>
         </div>
-        <!-- <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/420/300" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">This is the new vue</h2>
-                <p class="article-date">20 May 2019 - 7 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-            </div>
-        </div>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/500/260" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">How to be more productive ?</h2>
-                <p class="article-date">17 May 2021 - 4 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-
-            </div>
-        </div>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/800/224" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">This is the new vue</h2>
-                <p class="article-date">20 May 2019 - 7 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-
-            </div>
-        </div> -->
     </div>
 </template>
 
@@ -58,8 +26,25 @@ export default {
         getArticles(){
             return this.$store.state.articles
         }
+    },
+    methods: {
+        scroll() {
+            window.onscroll = () => {
+                let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+                if (bottomOfWindow) {
+                    // ...
+                    console.log('coucou')
+                    this.$store.commit('getApi')
+                }
+            };
+        }
+    },
+    beforeMount(){
+        this.scroll()
     }
 }
+
+
 </script>
 
 <style scoped>

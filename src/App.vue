@@ -16,6 +16,9 @@ export default {
     this.$store.commit('getApi')
   },
 }
+
+
+
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500&family=Secular+One&display=swap');
