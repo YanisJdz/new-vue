@@ -63,6 +63,12 @@ export default {
         articles(){
             return this.$store.state.articles
         }
+    },
+    beforeMount(){
+        console.log('Je viens de me monter');
+        window.removeEventListener('scroll', () => {
+            console.log('scroll removed')
+        })
     }
 }
 </script>

@@ -37,7 +37,7 @@ export default {
                 let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
                 if (bottomOfWindow) {
                     // ...
-                    console.log('coucou')
+                    console.log('Je ne suis pas fix')
                     this.$store.commit('getApi')
                 }
             };
@@ -46,11 +46,7 @@ export default {
     beforeMount(){
         this.scroll()
     },
-    beforeDestroy(){
-        window.removeEventListener('scroll', () => {
-            console.log('scroll removed')
-        })
-    }
+
 
 }
 
