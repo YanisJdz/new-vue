@@ -14,6 +14,7 @@ export default {
   },
   beforeCreate(){
     this.$store.commit('getApi')
+    console.log(this.$store.state.articles)
   },
 }
 
