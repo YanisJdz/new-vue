@@ -3,46 +3,18 @@
         <div v-for="(article, index) in getArticles" :key="index" class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
             <div class="article-container d-flex justify-content-center flex-column">
                 <div class="image-container mb-2">
-                    <img :src='article.urlToImage' alt="Blog photo">  
+                    <img v-if="article.image_url" :src='article.image_url' :alt="article.title">  
+                    <img v-else src="https://image.freepik.com/vecteurs-libre/collection-joueurs-football-dessin-anime_23-2149022199.jpg" :alt="article.title">
                 </div>
                 <h2 class="article-title">{{ article.title }} ?</h2>
-                <p class="article-date">{{ article.publishedAt }} - 4 min read</p>
+                <p class="article-date">{{ new Date(article.pubDate).toLocaleString("fr-FR", {
+                    day: '2-digit', 
+                    month: '2-digit',
+                    year: 'numeric'
+                }) }} - 4 min read</p>
                 <p class="article-description"> {{ article.description }} </p>
-
             </div>
         </div>
-        <!-- <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/420/300" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">This is the new vue</h2>
-                <p class="article-date">20 May 2019 - 7 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-            </div>
-        </div>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/500/260" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">How to be more productive ?</h2>
-                <p class="article-date">17 May 2021 - 4 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-
-            </div>
-        </div>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
-            <div class="article-container d-flex justify-content-center flex-column">
-                <div class="image-container mb-2">
-                    <img src="https://picsum.photos/800/224" alt="Blog photo">  
-                </div>
-                <h2 class="article-title">This is the new vue</h2>
-                <p class="article-date">20 May 2019 - 7 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
-
-            </div>
-        </div> -->
     </div>
 </template>
 
