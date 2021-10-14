@@ -34,10 +34,11 @@
                         <div class="card-body">
                             <h5 class="card-title mb-3">{{articles[$route.params.id].title}}</h5>
                             <ul class="list-group">
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-briefcase" style="font-size:20px;"></i>Author: <span v-if="articles[$route.params.id].creator">{{articles[$route.params.id].creator[0]}}</span><span v-else>Unknown Author</span> </li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-map-marker" style="font-size:20px;"></i>Source: <a :href="articles[$route.params.id].link" target="_blank">{{articles[$route.params.id].source_id}}</a></li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-user" style="font-size:20px;"></i>Published: {{articles[$route.params.id].pubDate}}</li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-clock-o" tyle="font-size:20px;"></i> <span v-if="articles[$route.params.id].keywords"> <span v-for="keyword in articles[$route.params.id].keywords" :key="keyword">{{keyword}} | </span> </span> <span v-else>No Keywords</span> </li>
+                                <li v-if="articles[$route.params.id].creator" class="list-group-item list-group-item-secondary"><font-awesome-icon icon="feather-alt" /> Author: <span>{{articles[$route.params.id].creator[0]}}</span> </li>
+                                <li v-else class="list-group-item list-group-item-secondary "><font-awesome-icon icon="user-secret" /> Unknown Author</li>
+                                <li class="list-group-item list-group-item-secondary"><font-awesome-icon icon="at" /> Source: <a :href="articles[$route.params.id].link" target="_blank">{{articles[$route.params.id].source_id}}</a></li>
+                                <li class="list-group-item list-group-item-secondary"><font-awesome-icon icon="history" /> Published: {{articles[$route.params.id].pubDate}}</li>
+                                <li class="list-group-item list-group-item-secondary"><font-awesome-icon icon="key" /> <span v-if="articles[$route.params.id].keywords"> <span v-for="keyword in articles[$route.params.id].keywords" :key="keyword">{{keyword}} | </span> </span> <span v-else>No Keywords</span> </li>
                             </ul>
                         </div>
                             <div class="card-footer">
