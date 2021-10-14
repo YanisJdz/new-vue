@@ -25,8 +25,13 @@ export default new Vuex.Store({
         state.articles.push(article)
       });
     },  
-    addArticle(){
+    addArticle(state, article){
       //Fonction Add Article
+      console.log(state.articles);
+      state.articles.push(article)
+      console.log(state.articles);
+      
+
     },
     removeArticle(){
       //Fonction Remove Article
