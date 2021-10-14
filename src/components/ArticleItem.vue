@@ -7,7 +7,7 @@
                 <h2 class="article-title">{{ article.title }} ?</h2>
                 <p class="article-date">{{ article.published_date }} - 4 min read</p>
                 <p class="article-description"> {{ article.abstract }} </p>
-                <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
+                <router-link  :to= "{path: '/article/' + index}" >Click here</router-link>
             </div>
             <h2 class="article-title">{{ article.title }} ?</h2>
             <p class="article-date">{{ new Date(article.pubDate).toLocaleString("fr-FR", {

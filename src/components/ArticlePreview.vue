@@ -6,10 +6,11 @@
                 <div class="image-container mb-2">
                     <img :src="article.media[0]['media-metadata'][2].url" :alt="article.title">  
                 </div>
+                </router-link>
                 <h2 class="article-title">{{ article.title }} ?</h2>
                 <p class="article-date">{{ article.published_date }} - 4 min read</p>
                 <p class="article-description"> {{ article.abstract }} </p>
-                </router-link>
+                <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
             </div>
         </div>
     </div>
