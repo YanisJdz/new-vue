@@ -40,6 +40,8 @@ nav {
 }
 .container-fluid {
     height: 100%;
+    background-color: #F6F8FF;
+
 }
 
 .nav-link {
