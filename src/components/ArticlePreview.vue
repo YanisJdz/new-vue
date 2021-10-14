@@ -2,13 +2,14 @@
     <div class="row">
         <div v-for="(article, index) in getArticles" :key="index" class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
             <div class="article-container d-flex justify-content-center flex-column">
+                <router-link :to= "{path: '/article/' + index}" >
                 <div class="image-container mb-2">
                     <img :src="article.media[0]['media-metadata'][2].url" :alt="article.title">  
                 </div>
                 <h2 class="article-title">{{ article.title }} ?</h2>
                 <p class="article-date">{{ article.published_date }} - 4 min read</p>
                 <p class="article-description"> {{ article.abstract }} </p>
-                <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
+                </router-link>
             </div>
         </div>
     </div>
