@@ -11,12 +11,13 @@ export default new Vuex.Store({
   mutations: {
     getApi(state){
       axios.get('http://api.fakecompany.life:30002/news')
-              .then(result => {
-                result.data.forEach(article => {
-                  state.articles.push(article)
-                });
-                console.log(state.articles);
-              })
+        .then(result => {
+          result.data.forEach(article => {
+            
+            state.articles.push(article)
+          });
+          console.log(state.articles);
+        })
     }
   },
   actions: {
