@@ -65,10 +65,9 @@ export default {
         }
     },
     beforeMount(){
-        console.log('Je viens de me monter');
-        window.removeEventListener('scroll', () => {
-            console.log('scroll removed')
-        })
+        //Delete previous Onscroll to avoid bugs
+        window.onscroll = () => {
+        }
     }
 }
 </script>
