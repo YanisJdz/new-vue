@@ -13,9 +13,26 @@ export default new Vuex.Store({
   },
   mutations: {
     getApi(state){
-      axios.get('http://api.fakecompany.life:30002/news')
-        .then(result => {
-          result.data.forEach(article => {
+      axios.get('https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=yjSObpLOd9RVv4SEmYC4J270oMdsbbVJ')
+      .then(result => {
+          result.data.results.forEach(article => {
+            if(article.media.length === 0){
+              const image = {
+                ['media-metadata'] : [
+                  {
+                    url: ''
+                  },
+                  {
+                    url: ''
+                  },
+                  {
+                    url: 'https://wallpaperaccess.com/full/5242273.jpg'
+                  },
+
+                ]
+              }
+              article.media.push(image)
+            }
             state.articles.push(article)
           });
         })

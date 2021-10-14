@@ -3,19 +3,19 @@
     <div class="container d-flex justify-content-center flex-column">
       <h1>BLOG</h1>
       <p class="sub-baseline">We don’t just design and develop. Sometimes we also write down words. Here we share our insights and findings from our daily work at Fintory.</p>
-      <ArticleList />
+      <ArticlePreview />
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src 
-import ArticleList from '@/components/ArticleList.vue'
+import ArticlePreview from '@/components/ArticlePreview.vue'
 
 export default {
   name: 'Home',
   components: {
-    ArticleList
+    ArticlePreview
   }
 }
 </script>

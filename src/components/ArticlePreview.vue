@@ -1,5 +1,6 @@
 <template>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
+    <div class="row">
+        <div v-for="(article, index) in getArticles" :key="index" class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
             <div class="article-container d-flex justify-content-center flex-column">
                 <div class="image-container mb-2">
                     <img :src="article.media[0]['media-metadata'][2].url" :alt="article.title">  
@@ -9,26 +10,21 @@
                 <p class="article-description"> {{ article.abstract }} </p>
                 <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
             </div>
-            <h2 class="article-title">{{ article.title }} ?</h2>
-            <p class="article-date">{{ new Date(article.pubDate).toLocaleString("fr-FR", {
-                day: '2-digit', 
-                month: '2-digit',
-                year: 'numeric'
-            }) }} - 4 min read</p>
-            <p class="article-description"> {{ article.description }} </p>
-            <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
         </div>
+    </div>
 </template>
 
 <script scoped>
 export default {
-    name: "ArticleItem",
-    props: {
-        article: Object
-    },
+    name: "ArticlePreview",
     data() {
         return {
             
+        }
+    },
+    computed: {
+        getArticles(){
+            return this.$store.state.articles
         }
     },
     methods: {
@@ -45,13 +41,7 @@ export default {
     },
     beforeMount(){
         this.scroll()
-    },
-    beforeDestroy(){
-        window.removeEventListener('scroll', () => {
-            console.log('scroll removed')
-        })
     }
-
 }
 
 
