@@ -13,7 +13,7 @@ export default new Vuex.Store({
   },
   mutations: {
     getApi(state){
-      axios.get('https://newsdata.io/api/1/news?apikey=pub_17577c4f3309833a0e79ea0d6ed11c96bcf6&q=Sports&language=en')
+      axios.get('https://newsdata.io/api/1/news?apikey=pub_17577c4f3309833a0e79ea0d6ed11c96bcf6&q=Sports&language=fr')
         .then(result => {
           result.data.results.forEach(article => {
             state.articles.push(article)
