@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="row">
       <ArticleItem v-for="(article, index) in getArticles" :key="index" :article="article"/>
   </div>
 </template>
