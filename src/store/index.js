@@ -13,13 +13,11 @@ export default new Vuex.Store({
   },
   mutations: {
     getApi(state){
-      axios.get('https://newsdata.io/api/1/news?apikey=pub_17577c4f3309833a0e79ea0d6ed11c96bcf6&q=Sports&language=fr')
+      axios.get('http://api.fakecompany.life:30002/news')
         .then(result => {
-          result.data.results.forEach(article => {
+          result.data.forEach(article => {
             state.articles.push(article)
           });
-          console.log(state.articles);
-          console.log(result.data.results);
         })
     },
     addToArticles(state, articles){
