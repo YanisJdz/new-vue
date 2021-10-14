@@ -14,31 +14,30 @@
             <div>
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-white">
-                        <h1 class="mb-5 mt-5">Titre du post / Article </h1>
-                        <hr/>
-                        <h4 class="mb-5 mt-5">Par : Auteur</h4>
+                        <h1 class="mb-5 mt-5"> {{articles[$route.params.id].title}} </h1>
+                        <hr v-if="articles[$route.params.id].creator"/>
+                        <h4 class="mb-5 mt-5" v-if="articles[$route.params.id].creator"> Par : {{articles[$route.params.id].creator[0]}} </h4>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Background image -->
         <div class="row">
-            <h2 class="mb-5">Titre du post / article</h2>
+            <h2 class="mb-5">{{articles[$route.params.id].title}}</h2>
             <div class="col-8">
-                <p v-for="(article,index) in articles" :key="index">
-                    {{article.author}}
-                </p>
+                <span v-if="articles[$route.params.id].content"><p v-html="articles[$route.params.id].content"></p></span> 
+                <span v-else><p>This article has no content. You can check creator source <a :href="articles[$route.params.id].link" target="_blank">here</a> </p></span> 
             </div>
             <div class="col-4">
                 <div class="card-deck mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title mb-3">Titre du post / Article</h5>
+                            <h5 class="card-title mb-3">{{articles[$route.params.id].title}}</h5>
                             <ul class="list-group">
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-briefcase" style="font-size:20px;"></i>Auteur</li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-user" style="font-size:20px;"></i>Date de création du post</li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-map-marker" style="font-size:20px;"></i>Type de contenu</li>
-                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-clock-o" tyle="font-size:20px;"></i>Temps de lecture</li>
+                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-briefcase" style="font-size:20px;"></i>Author: <span v-if="articles[$route.params.id].creator">{{articles[$route.params.id].creator[0]}}</span><span v-else>Unknown Author</span> </li>
+                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-map-marker" style="font-size:20px;"></i>Source: <a :href="articles[$route.params.id].link" target="_blank">{{articles[$route.params.id].source_id}}</a></li>
+                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-user" style="font-size:20px;"></i>Published: {{articles[$route.params.id].pubDate}}</li>
+                                <li class="list-group-item list-group-item-secondary"><i class="fa fa-clock-o" tyle="font-size:20px;"></i> <span v-if="articles[$route.params.id].keywords"> <span v-for="keyword in articles[$route.params.id].keywords" :key="keyword">{{keyword}} | </span> </span> <span v-else>No Keywords</span> </li>
                             </ul>
                         </div>
                             <div class="card-footer">
@@ -78,6 +77,9 @@ button:disabled {
 }
 .card-text {
   text-align: justify;
+}
+a{
+    color: grey;
 }
 
 </style>
