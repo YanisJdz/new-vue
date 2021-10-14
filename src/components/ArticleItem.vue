@@ -42,7 +42,13 @@ export default {
     },
     beforeMount(){
         this.scroll()
+    },
+    beforeDestroy(){
+        window.removeEventListener('scroll', () => {
+            console.log('scroll removed')
+        })
     }
+
 }
 
 
