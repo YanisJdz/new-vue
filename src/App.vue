@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <HeaderPreview />
-    
     <router-view/>
   </div>
 </template>
@@ -11,7 +10,10 @@ import HeaderPreview from '@/components/HeaderPreview.vue'
 export default {
   components: {
     HeaderPreview,
-  }  
+  },
+  beforeCreate(){
+    this.$store.commit('getApi')
+  },
 }
 </script>
 <style>
@@ -28,7 +30,7 @@ export default {
   padding: 30px;
 }
 
-#nav a {
+#nav a { 
   font-weight: bold;
   color: #2c3e50;
 }
