@@ -16,7 +16,7 @@
                 year: 'numeric'
             }) }} - 4 min read</p>
             <p class="article-description"> {{ article.description }} </p>
-            <router-link :to= "{path: '/article/' + index}" >Click here</router-link>
+            
         </div>
 </template>
 
