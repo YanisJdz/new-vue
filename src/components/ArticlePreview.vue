@@ -1,17 +1,17 @@
 <template>
     <div class="row">
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
+        <div v-for="(article, index) in getArticles" :key="index" class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
             <div class="article-container d-flex justify-content-center flex-column">
                 <div class="image-container mb-2">
-                    <img src="https://picsum.photos/380/300" alt="Blog photo">  
+                    <img :src='article.urlToImage' alt="Blog photo">  
                 </div>
-                <h2 class="article-title">How to be more productive ?</h2>
-                <p class="article-date">17 May 2021 - 4 min read</p>
-                <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
+                <h2 class="article-title">{{ article.title }} ?</h2>
+                <p class="article-date">{{ article.publishedAt }} - 4 min read</p>
+                <p class="article-description"> {{ article.description }} </p>
 
             </div>
         </div>
-        <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
+        <!-- <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-3 col-md-6">
             <div class="article-container d-flex justify-content-center flex-column">
                 <div class="image-container mb-2">
                     <img src="https://picsum.photos/420/300" alt="Blog photo">  
@@ -42,13 +42,23 @@
                 <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a magna at turpis ullamcorper maximus eu accumsan lorem. Curabitur tempus </p>
 
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 export default {
     name: "ArticlePreview",
+    data() {
+        return {
+            
+        }
+    },
+    computed: {
+        getArticles(){
+            return this.$store.state.articles
+        }
+    }
 }
 </script>
 
@@ -59,10 +69,11 @@ export default {
         font-weight: bold;
         align-self: flex-start;
         margin-bottom: 0;
+        text-align: start;
         
     }
     .article-container {
-        width: 75%;
+        width: 85%;
         height: 100%;
 
     }
@@ -84,7 +95,7 @@ export default {
     .article-description {
         font-size: clamp(12px, 2vw, 14px);
         text-align: start;
-        font-family: 'lobster';
+        font-family: 'Open Sans';
     }
 
     @media (min-width: 450px){
