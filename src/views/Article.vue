@@ -13,9 +13,7 @@ export default {
     components:{
         ArticleComponent
     },
-    beforeCreate(){
-        this.$store.commit('getApi')
-    },
+    
 }
 </script>
 
