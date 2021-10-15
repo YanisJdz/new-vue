@@ -1,73 +1,103 @@
 <template>
-    <div class='container d-flex flex-column'>
-        <div class="admin-panel d-flex flex-column">
-            <h1 class="mb-3 mt-3">Vue Admin</h1>
-            <div>
-            <p class = "subtitle">Author :</p>
-            <input class="input-area form-control" type="text" v-model="author" placeholder="Author">
-            </div>
-            <p class = "subtitle">Title :</p>
-            <input class="input-area form-control" type="text" v-model="title" placeholder="Title">
-            <p class = "subtitle">Description :</p>
-            <textarea class="input-area form-control" v-model="description" name="description" id="1" cols="1" rows="2" placeholder="Description of the article"></textarea>
-            <p class = "subtitle">Content :</p>
-            <textarea  class="input-area form-control" v-model="content" name="content" id="" cols="30" rows="10" placeholder="Content of the article goes right here"></textarea>
-            <button class="btn btn-primary" @click="addArticle(createArticle())" v-bind:disabled="author.length === 0" type="submit">Add article</button>
-        </div>
-        <div class="preview-article">
-            <h2 class="mt-3 mb-3">Article Preview</h2>
-            <h2>{{ author }}</h2>
-            <h3>{{ title }}</h3>
-            <p class='articleDescription'>{{ description}}</p>
-            <p class='articleContent'>{{ content}}</p>
-            
-        </div>
-    
+<div class="admin">
+    <div>
+        <button v-for="(page,index) in pages" :key="index" 
+        @click="currentPage = index">
+        {{page.buttonName}}
+        </button>
     </div>
+    <div>
+        <component :is="computedPage"/>
+    </div>
+</div>
 </template>
 
 <script>
+
+import AdminAddComponent from '../components/AdminAddComponent.vue'
+import AdminModifyComponent from '../components/AdminModifyList.vue'
 export default {
+
     name: 'Admin',
-    data() {
-        return {
-            title: '',
-            author: '',
-            description: '',
-            content: '',
-        }
-    },
-    methods: {
-        createArticle(){
-            let article = {
-                title: this.title,
-                author: this.author,
-                description: this.description,
-                content: this.content
-            }
-            return article
-        },
-        addArticle(article){
-            this.$store.commit('addArticle', article)
-        }
-    }
+    data(){
+       return{
+           currentPage: 0,
+           pages:[
+               {
+                    name:'AdminAddComponent',
+                    compo: AdminAddComponent,
+                    buttonName:'Ajouter un article'
+               },
+               {
+                    name:'AdminModifyComponent',
+                    compo: AdminModifyComponent,
+                    buttonName:'Modifier ou supprimer un article'
+               }
+           ]
+       }
+   },
+   computed:{
+       computedPage(){
+           return this.pages[this.currentPage].compo
+       }
+   }
 }
 </script>
 
-<style>
-h1{
-    text-decoration: underline #001252;
-}
+<style scoped>
+    .container{
+        background-color: #F6F8FF;
+    }
+    .admin-panel {
+        width: 50%;
+        margin-right: 10px;
+    }
+    .preview-article {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: 10px
+        
+    }
+    button {
+        margin-top: 10px;
+    }
+    .subtitle {
+        font-size: clamp(12px, 1.5vw, 18px);
+        margin-top: 10px;
+        margin-bottom: 0;
+        text-decoration: underline #001252;
+    }
+    .container {
+        justify-content: space-evenly;
 
-button {
-    margin-top: 10px;
-}
-.subtitle{
-    font-size: clamp(12px, 1.5vw, 18px);
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-decoration: underline #001252;
-}
+    }
+    .content-written {
+        padding-left: 5px;
+        height: 100%;
+        background-color: white;
+        text-align: start;
+    }
+   
+
+    .author-preview {
+        width: 100%;
+    }
+
+    .title-preview {
+        font-size: clamp(16px, 2vw, 20px);
+        color: black;
+        font-weight: bold;
+    
+    }
+    .description-preview {
+        font-size: clamp(12px, 2vw, 14px);
+        font-family: 'Open Sans';
+    }
+    .content-preview {
+        font-size: clamp(12px, 2vw, 14px);
+        font-family: 'Open Sans';
+    }
+    
 
 </style>
