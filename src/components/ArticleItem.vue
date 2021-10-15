@@ -1,5 +1,5 @@
 <template>
-    <div class="blog-article d-flex justify-content-center flex-column align-items-center mb-5 col-md-6">
+    <div class="blog-article mb-5 col-md-6">
         <div class="article-container d-flex justify-content-center flex-column">
             <div class="image-container mb-2">
                 <img :src="article.media[0]['media-metadata'][2].url" :alt="article.title">  
@@ -55,6 +55,12 @@ export default {
         margin-bottom: 0;
         text-align: start;
         
+    }
+    .blog-article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .article-container {
         width: 85%;
