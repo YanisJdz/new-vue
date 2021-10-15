@@ -39,17 +39,15 @@ export default new Vuex.Store({
     },
     addArticle(state, article){
       //Fonction Add Article
-      console.log(state.articles);
       state.articles.push(article)
-      console.log(state.articles);
-      
-
     },
-    removeArticle(){
+    removeArticle(state,index){
       //Fonction Remove Article
+      state.articles.splice(index, 1);
     },
-    modifyArticle(){
-
+    modifyArticle(state,newArticle){
+      state.articles[state.articles.findIndex((el) => el.id === newArticle.article.id)] = newArticle.article
+      console.log(state.articles);
     }
   },
   actions: {
