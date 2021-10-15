@@ -45,16 +45,19 @@ export default {
 </script>
 
 <style>
+h1{
+    text-decoration: underline #001252;
+}
 
 button {
     margin-top: 10px;
-    border: black;
-    
 }
 .subtitle{
+    font-size: clamp(12px, 1.5vw, 18px);
     display: flex;
     margin-top: 10px;
     margin-bottom: 0px;
+    text-decoration: underline #001252;
 }
 
 </style>

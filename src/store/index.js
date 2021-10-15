@@ -37,11 +37,6 @@ export default new Vuex.Store({
           });
         })
     },
-    addToArticles(state, articles){
-      articles.forEach(article => {
-        state.articles.push(article)
-      });
-    },  
     addArticle(state, article){
       //Fonction Add Article
       state.articles.push(article)

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-      <ArticleItem v-for="(article, index) in getArticles" :key="index" :article="article"/>
+      <ArticleItem v-for="(article, index) in getArticles" :key="index" :index="index" :article="article"/>
   </div>
 </template>
 
@@ -10,12 +10,12 @@ import ArticleItem from '@/components/ArticleItem.vue'
 export default {
     data() {
         return {
-            
+
         }
     },
     components: {
-    ArticleItem
-  },
+        ArticleItem
+    },
     computed: {
         getArticles(){
             return this.$store.state.articles
