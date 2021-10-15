@@ -23,7 +23,7 @@
             </div>
         </div>
         <!-- Background image -->
-        <div class="row">
+        <div class="row article-content-container">
             <h2 class="mb-5">{{articles[$route.params.id].title}}</h2>
             <div class="col-8">
                 <p v-if="articles[$route.params.id].abstract">{{articles[$route.params.id].abstract}}..</p> 
@@ -90,6 +90,17 @@ button:disabled {
 }
 a{
     color: grey;
+}
+
+@media (max-width: 700px){
+    .article-content-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-body {
+        width: 100%;
+    }
 }
 
 </style>
