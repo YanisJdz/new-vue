@@ -5,7 +5,7 @@
       <p class="sub-baseline">We don’t just design and develop. Sometimes we also write down words. Here we share our
         insights and findings from our daily work at Fintory.</p>
       <div class="d-flex justify-content-center">
-        <input @keyup.enter="getArticle" v-model="searchInput" class="form-control me-2" type="searcg"
+        <input @keyup="getArticle" v-model="searchInput" class="form-control me-2" type="searcg"
           placeholder="Search for article" aria-label="Search">
       </div>
       <ArticleList />
