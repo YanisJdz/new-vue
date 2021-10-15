@@ -66,7 +66,11 @@ export default {
                 author: this.author,
                 abstract: this.description,
                 content: this.content,
-                published_date: new Date(),
+                published_date: new Date().toLocaleString("fr-CA", {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit', 
+                }),
                 media: [{
                     ['media-metadata'] : [
                         {
