@@ -90,6 +90,8 @@ h1 {
 @media (max-width: 900px){
     .container-fluid {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .nav-item {
         margin-right: 0;
@@ -112,4 +114,5 @@ h1 {
     }
     
 }
+
 </style>
