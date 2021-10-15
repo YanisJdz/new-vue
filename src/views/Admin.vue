@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1{
     text-decoration: underline #001252;
 }

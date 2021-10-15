@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style >
+<style scoped>
 h2{
   text-align: start;
   margin-top: 5%;
