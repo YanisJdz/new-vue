@@ -1,23 +1,23 @@
 <template>
     <nav class="navbar sticky-top navbar-expand bg-light">
         <div class="container-fluid">
-        <h1>THE NEW-VUE</h1>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/">BLOG</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/about">ABOUT</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/links">LINKS</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/contact">CONTACT</router-link>
-                </li>
-            </ul>
-        </div>
+            <h1>THE NEW-VUE</h1>
+            <div class="" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/">BLOG</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/about">ABOUT</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/links">LINKS</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/contact">CONTACT</router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
@@ -87,4 +87,29 @@ h1 {
     margin-left: 5%
 }
 
+@media (max-width: 900px){
+    .container-fluid {
+        flex-direction: column;
+    }
+    .nav-item {
+        margin-right: 0;
+    }
+    #navbarNav {
+        margin-right: 0%;
+        
+    }
+    .nav-link {
+        padding-top: 0;
+        
+    }
+    h1 {
+    }
+    
+}
+@media (max-width: 630px){
+    h1 {
+        padding-top: 1%
+    }
+    
+}
 </style>
