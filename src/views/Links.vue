@@ -14,7 +14,7 @@
 
     <div class ="link-box">
       <h4 class = "link-name">Third link :</h4>
-      <a href="#" class ="link-btn btn btn-primary"> This link lead to nowhere...</a>
+      <router-link to="/admin" class ="link-btn btn btn-primary"> This link lead to nowhere...</router-link>
     </div>
 
   </div>
